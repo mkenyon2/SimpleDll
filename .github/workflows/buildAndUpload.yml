@@ -22,11 +22,11 @@ jobs:
       with:
         dotnet-version: 8.0.x
         
-    # - name: Restore dependencies
-      # run: dotnet restore SimpleDll.sln
+    - name: Restore dependencies
+      run: dotnet restore SimpleDll.sln
       
-    # - name: Build
-      # run: dotnet build SimpleDll.sln --configuration Release --no-restore
+    - name: Build
+      run: dotnet build SimpleDll.sln --configuration Release --no-restore
       
     # - name: Publish
       # run: dotnet publish SimpleDll.sln -f net8.0 --configuration Release --no-build --output ./publish
