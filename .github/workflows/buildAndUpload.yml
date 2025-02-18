@@ -3,36 +3,36 @@
 name: SimpleDll
 
 on:
+  workflow_dispatch:
+  
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
-  workflow_dispatch:
-
 jobs:
   build-job:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
         
-    - name: Restore dependencies
-      run: dotnet restore SimpleDll.sln
+    # - name: Restore dependencies
+      # run: dotnet restore SimpleDll.sln
       
-    - name: Build
-      run: dotnet build SimpleDll.sln --configuration Release --no-restore
+    # - name: Build
+      # run: dotnet build SimpleDll.sln --configuration Release --no-restore
       
-    - name: Publish
-      run: dotnet publish SimpleDll.sln -f net8.0 --configuration Release --no-build --output ./publish
+    # - name: Publish
+      # run: dotnet publish SimpleDll.sln -f net8.0 --configuration Release --no-build --output ./publish
       
-    - name: Save output
-      uses: actions/upload-artifact@v4
-      with:
-        name: simple-dlls
-        path: ./publish
+    # - name: Save output
+      # uses: actions/upload-artifact@v4
+      # with:
+        # name: simple-dlls
+        # path: ./publish
